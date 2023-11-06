@@ -3,11 +3,10 @@ package ensias.ma.missionrequestservice.domain;
 
 import ensias.ma.missionrequestservice.repositories.MissionRequestStateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 @Component
-public class SpringBootMissionRequestStateFactory implements  MissionRequestStateFactory {
+public class SpringBootMissionRequestStateFactory implements MissionRequestStateFactory {
 
     @Autowired
     private MissionRequestStateRepository repository;
@@ -64,6 +63,11 @@ public class SpringBootMissionRequestStateFactory implements  MissionRequestStat
             }
         }
         return cancelledMissionRequestState;
+    }
+
+    @Override
+    public MissionRequestState getState() {
+        return null;
     }
 
 }

@@ -32,6 +32,6 @@ public class RejectedMissionRequestState extends MissionRequestState {
 
     @Override
     public void accept(MissionRequestStateVisitor visitor) {
-        visitor.visitRejectedMissionState(this);
+        visitor.visitRejectedMissionRequestState(this);
     }
 }

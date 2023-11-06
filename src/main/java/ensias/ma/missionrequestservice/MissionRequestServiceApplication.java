@@ -1,6 +1,5 @@
 package ensias.ma.missionrequestservice;
 
-import ensias.ma.missionrequestservice.domain.CreatedMissionRequestState;
 import ensias.ma.missionrequestservice.domain.MissionRequestStateFactory;
 import ensias.ma.missionrequestservice.repositories.MissionRequestStateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,14 +17,14 @@ public class MissionRequestServiceApplication {
 	@Bean
 	CommandLineRunner run(MissionRequestStateFactory missionRequestStateFactory) {
 		return args -> {
-			System.out.println(missionRequestStateFactory.getCreatedMissionRequestState().getId());
+			/*System.out.println(missionRequestStateFactory.getCreatedMissionRequestState().getId());
 			System.out.println(missionRequestStateFactory.getCancelledMissionRequestState().getId());
 			System.out.println(missionRequestStateFactory.getApprovedMissionRequestState().getId());
 			System.out.println(missionRequestStateFactory.getRejectedMissionRequestState().getId());
 			System.out.println(missionRequestStateFactory.getRejectedMissionRequestState().getId());
 			System.out.println(missionRequestStateFactory.getApprovedMissionRequestState().getId());
 			System.out.println(missionRequestStateFactory.getCancelledMissionRequestState().getId());
-			System.out.println(missionRequestStateFactory.getCreatedMissionRequestState().getId());
+			System.out.println(missionRequestStateFactory.getCreatedMissionRequestState().getId());*/
 		};
 	}
 

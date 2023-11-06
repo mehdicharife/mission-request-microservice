@@ -27,10 +27,10 @@ public class MissionRequest {
         state = state.cancel(this);
     }
 
-    public MissionRequest copy(MissionRequestStateVisitor visitor) {
+    public MissionRequest copy(MissionRequestStateReflector reflector) {
         MissionRequest request = new MissionRequest();
-        state.accept(visitor);
-        request.state = visitor.state;
+        request.id = this.id;
+        request.state = reflector.convert(state);
         return request;
     }
 

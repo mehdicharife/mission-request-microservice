@@ -6,11 +6,11 @@ import jakarta.persistence.Entity;
 @Entity
 @DiscriminatorValue("CREATED")
 public class CreatedMissionRequestState extends MissionRequestState {
-    private static CancelledMissionRequestState instance;
+    private static CreatedMissionRequestState instance;
 
     public static CreatedMissionRequestState getInstance() {
         if(instance == null) {
-            instance = new CancelledMissionRequestState();
+            instance = new CreatedMissionRequestState();
         }
         return instance;
     }
@@ -32,6 +32,6 @@ public class CreatedMissionRequestState extends MissionRequestState {
 
     @Override
     public void accept(MissionRequestStateVisitor visitor) {
-        visitor.visitCreatedMissionState(this);
+        visitor.visitCreatedMissionRequestState(this);
     }
 }

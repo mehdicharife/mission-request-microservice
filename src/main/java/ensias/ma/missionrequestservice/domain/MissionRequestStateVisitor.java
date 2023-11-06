@@ -1,8 +1,8 @@
 package ensias.ma.missionrequestservice.domain;
 
 public interface MissionRequestStateVisitor {
-    void visitCreatedMissionState(CreatedMissionRequestState state);
-    void visitApprovedMissionState(ApprovedMissionRequestState state);
-    void visitRejectedMissionState(RejectedMissionRequestState state);
-    void visitCancelledMissionState(CancelledMissionRequestState state);
+    void visitCreatedMissionRequestState(CreatedMissionRequestState state);
+    void visitApprovedMissionRequestState(ApprovedMissionRequestState state);
+    void visitRejectedMissionRequestState(RejectedMissionRequestState state);
+    void visitCancelledMissionRequestState(CancelledMissionRequestState state);
 }
