@@ -20,6 +20,10 @@ public final class  MissionRequestStateRepositoryBasedMissionRequestStateReflect
     public CreatedMissionRequestState getCreatedMissionRequestState() {
         if(createdMissionRequestState == null) {
             createdMissionRequestState = repository.getCreatedMissionRequestState();
+            if(createdMissionRequestState == null) {
+                createdMissionRequestState = new CreatedMissionRequestState();
+                repository.save(createdMissionRequestState);
+            }
         }
         return createdMissionRequestState;
     }
@@ -28,6 +32,10 @@ public final class  MissionRequestStateRepositoryBasedMissionRequestStateReflect
     public ApprovedMissionRequestState getApprovedMissionRequestState() {
         if(approvedMissionRequestState == null) {
             approvedMissionRequestState = repository.getApprovedMissionRequestState();
+            if(approvedMissionRequestState == null) {
+                approvedMissionRequestState = new ApprovedMissionRequestState();
+                repository.save(approvedMissionRequestState);
+            }
         }
         return approvedMissionRequestState;
     }
@@ -36,6 +44,10 @@ public final class  MissionRequestStateRepositoryBasedMissionRequestStateReflect
     public RejectedMissionRequestState getRejectedMissionRequestState() {
         if(rejectedMissionRequestState == null) {
             rejectedMissionRequestState = repository.getRejectedMissionRequestState();
+            if(rejectedMissionRequestState == null) {
+                rejectedMissionRequestState = new RejectedMissionRequestState();
+                repository.save(rejectedMissionRequestState);
+            }
         }
         return rejectedMissionRequestState;
     }
@@ -44,6 +56,10 @@ public final class  MissionRequestStateRepositoryBasedMissionRequestStateReflect
     public CancelledMissionRequestState getCancelledMissionRequestState() {
         if(cancelledMissionRequestState == null) {
             cancelledMissionRequestState = repository.getCancelledMissionRequestState();
+            if(cancelledMissionRequestState == null) {
+                cancelledMissionRequestState = new CancelledMissionRequestState();
+                repository.save(cancelledMissionRequestState);
+            }
         }
         return cancelledMissionRequestState;
     }

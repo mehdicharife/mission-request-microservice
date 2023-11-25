@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MissionRequestServiceImpl {
+public class MissionRequestServiceImpl implements MissionRequestService {
     @Autowired
     private MissionRequestRepository missionRequestRepository;
 
