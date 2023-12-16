@@ -35,4 +35,5 @@ public class ApprovedMissionRequestState extends MissionRequestState {
     public void accept(MissionRequestStateVisitor visitor) {
         visitor.visitApprovedMissionRequestState(this);
     }
+
 }

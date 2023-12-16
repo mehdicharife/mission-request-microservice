@@ -34,4 +34,5 @@ public class RejectedMissionRequestState extends MissionRequestState {
     public void accept(MissionRequestStateVisitor visitor) {
         visitor.visitRejectedMissionRequestState(this);
     }
+
 }

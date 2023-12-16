@@ -22,7 +22,7 @@ public class CreatedMissionRequestState extends MissionRequestState {
 
     @Override
     public MissionRequestState reject(MissionRequest missionRequest) {
-        return  new RejectedMissionRequestState();
+        return new RejectedMissionRequestState();
     }
 
     @Override
@@ -34,4 +34,6 @@ public class CreatedMissionRequestState extends MissionRequestState {
     public void accept(MissionRequestStateVisitor visitor) {
         visitor.visitCreatedMissionRequestState(this);
     }
+
+
 }

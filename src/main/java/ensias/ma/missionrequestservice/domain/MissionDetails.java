@@ -1,12 +1,13 @@
 package ensias.ma.missionrequestservice.domain;
 
+import java.io.Serializable;
+
 import jakarta.persistence.Embeddable;
 
-//import java.time.LocalDate;
 
 
 @Embeddable
-public class MissionDetails {
+public class MissionDetails implements Serializable {
     private String title;
 
     private String description;

@@ -36,4 +36,5 @@ public class CancelledMissionRequestState extends MissionRequestState {
         visitor.visitCancelledMissionRequestState(this);
     }
 
+
 }
