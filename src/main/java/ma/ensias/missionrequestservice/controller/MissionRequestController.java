@@ -36,8 +36,9 @@ public class MissionRequestController {
 
 
     @PostMapping("/mission-requests/")
-    public MissionRequest addMissionRequest(@RequestBody MissionRequest missionRequest) {
-        return this.missionRequestService.save(missionRequest);
+    public MissionRequestDto addMissionRequest(@RequestBody MissionRequest missionRequest) {
+        MissionRequest savedMissionRequest = this.missionRequestService.save(missionRequest);
+        return MissionRequestMapper.toDto(savedMissionRequest);
     }
 
 
