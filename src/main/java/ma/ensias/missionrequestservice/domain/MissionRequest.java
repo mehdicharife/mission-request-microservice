@@ -8,7 +8,7 @@ import ma.ensias.missionrequestservice.reflector.SimpleMissionRequestStateReflec
 
 
 @Entity
-public class MissionRequest implements Serializable{
+public class MissionRequest implements Serializable {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -24,7 +24,7 @@ public class MissionRequest implements Serializable{
     private MissionRequestState state = new CreatedMissionRequestState();
 
     @Transient
-    private SimpleMissionRequestStateReflector stateReflector = new SimpleMissionRequestStateReflector();
+    private transient SimpleMissionRequestStateReflector stateReflector = new SimpleMissionRequestStateReflector();
 
 
     public MissionDetails getMissionDetails() {
@@ -71,6 +71,18 @@ public class MissionRequest implements Serializable{
         request.state = reflector.convert(state);
         return request;
     }
+
+
+    @Override
+    public String toString() {
+        return "{" +
+            " id='" + getId() + "'" +
+            ", professorId='" + getProfessorId() + "'" +
+            ", missionDetails='" + getMissionDetails() + "'" +
+            ", state='" + state + "'" +
+            "}";
+    }
+
 
 
 }

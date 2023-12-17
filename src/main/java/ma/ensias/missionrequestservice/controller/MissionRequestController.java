@@ -50,9 +50,11 @@ public class MissionRequestController {
         request.approve();
         this.missionRequestService.save(request);
 
-        //this.rabbitTemplate.convertAndSend("mission-request-approved", "", request);
+        MissionRequestDto requestDto = MissionRequestMapper.toDto(request);
 
-        return MissionRequestMapper.toDto(request);
+        this.rabbitTemplate.convertAndSend("mission-request-approved", "", requestDto);
+
+        return requestDto;
     }
 
 
