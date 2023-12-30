@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 import ma.ensias.missionrequestservice.domain.MissionRequest;
 import ma.ensias.missionrequestservice.dto.MissionRequestDto;
+import ma.ensias.missionrequestservice.event.MissionRequestApprovedEvent;
 import ma.ensias.missionrequestservice.mapper.MissionRequestMapper;
 import ma.ensias.missionrequestservice.service.MissionRequestService;
 
@@ -51,8 +52,9 @@ public class MissionRequestController {
         this.missionRequestService.save(request);
 
         MissionRequestDto requestDto = MissionRequestMapper.toDto(request);
+        MissionRequestApprovedEvent missionRequestApprovedEvent = new MissionRequestApprovedEvent(request.getMissionId(), request.getId());
 
-        this.rabbitTemplate.convertAndSend("mission-request-approved", "", requestDto);
+        this.rabbitTemplate.convertAndSend("mission-request-approved", "", missionRequestApprovedEvent);
 
         return requestDto;
     }

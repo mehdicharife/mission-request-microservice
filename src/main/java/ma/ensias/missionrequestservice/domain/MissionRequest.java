@@ -14,10 +14,10 @@ public class MissionRequest implements Serializable {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
-    public Long professorId;
+    private Long professorId;
 
-    @Embedded
-    private MissionDetails missionDetails;
+    private Long missionId;
+
 
     @ManyToOne
     @JoinColumn(name="mission_request_state_id", referencedColumnName="id")
@@ -26,10 +26,6 @@ public class MissionRequest implements Serializable {
     @Transient
     private transient SimpleMissionRequestStateReflector stateReflector = new SimpleMissionRequestStateReflector();
 
-
-    public MissionDetails getMissionDetails() {
-        return this.missionDetails;
-    }
 
     public Long getId() {
         return this.id;
@@ -45,6 +41,14 @@ public class MissionRequest implements Serializable {
 
     public void setProfessorId(Long professorId) {
         this.professorId = professorId;
+    }
+
+    public Long getMissionId() {
+        return this.missionId;
+    }
+
+    public void setMissionId(Long missionId) {
+        this.missionId = missionId;
     }
 
     public MissionRequestState getMissionRequestStateCopy() {
@@ -67,7 +71,6 @@ public class MissionRequest implements Serializable {
         MissionRequest request = new MissionRequest();
         request.id = this.id;
         request.professorId = this.professorId;
-        request.missionDetails = this.missionDetails;
         request.state = reflector.convert(state);
         return request;
     }
@@ -78,7 +81,6 @@ public class MissionRequest implements Serializable {
         return "{" +
             " id='" + getId() + "'" +
             ", professorId='" + getProfessorId() + "'" +
-            ", missionDetails='" + getMissionDetails() + "'" +
             ", state='" + state + "'" +
             "}";
     }

@@ -1,13 +1,12 @@
 package ma.ensias.missionrequestservice.dto;
 
-import ma.ensias.missionrequestservice.domain.MissionDetails;
 
 public class MissionRequestDto {
     private Long id;
 
     private Long professorId;
 
-    private MissionDetails missionDetails;
+    private Long missionId;
 
     private String state;
 
@@ -27,12 +26,12 @@ public class MissionRequestDto {
         this.professorId = professorId;
     }
 
-    public MissionDetails getMissionDetails() {
-        return this.missionDetails;
+    public Long getMissionId() {
+        return this.missionId;
     }
 
-    public void setMissionDetails(MissionDetails missionDetails) {
-        this.missionDetails = missionDetails;
+    public void setMissionId(Long missionId) {
+        this.missionId = missionId;
     }
 
     public String getState() {
@@ -49,9 +48,10 @@ public class MissionRequestDto {
         return "{" +
             " id='" + getId() + "'" +
             ", professorId='" + getProfessorId() + "'" +
-            ", missionDetails='" + getMissionDetails() + "'" +
+            ", missionId='" + getMissionId() + "'" +
             ", state='" + getState() + "'" +
             "}";
     }
+
 
 }

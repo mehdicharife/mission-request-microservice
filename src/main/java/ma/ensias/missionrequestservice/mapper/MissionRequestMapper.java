@@ -16,7 +16,7 @@ public class MissionRequestMapper {
 
         missionRequestDto.setId(missionRequest.getId());
         missionRequestDto.setProfessorId(missionRequest.getProfessorId());
-        missionRequestDto.setMissionDetails(missionRequest.getMissionDetails());
+        missionRequestDto.setMissionId(missionRequest.getMissionId());
         missionRequestDto.setState(missionRequestStateNamer.getName(missionRequest.getMissionRequestStateCopy()));
 
         return missionRequestDto;

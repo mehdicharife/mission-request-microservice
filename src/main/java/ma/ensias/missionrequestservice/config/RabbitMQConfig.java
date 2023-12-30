@@ -1,6 +1,5 @@
 package ma.ensias.missionrequestservice.config;
 
-import java.util.List;
 
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
@@ -17,26 +16,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 
-
 @Configuration
 public class RabbitMQConfig {
-
 
     @Bean
     public FanoutExchange missionRequestApprovedExchange() {
         return new FanoutExchange("mission-request-approved");
     }
-
-    @Bean
-    public Queue missionRequestApprovedQueue() {
-        return new Queue("mission-request-approved-queue", true);
-    }
-
-    @Bean
-    public Binding binding(FanoutExchange missionRequestApprovedExchange, Queue missionRequestApprovedQueue) {
-        return BindingBuilder.bind(missionRequestApprovedQueue).to(missionRequestApprovedExchange);
-    }
-
 
 
     @Bean
@@ -50,6 +36,5 @@ public class RabbitMQConfig {
         rabbitTemplate.setMessageConverter(jsonMessageConverter);
         return rabbitTemplate;
     }
-
     
 }
