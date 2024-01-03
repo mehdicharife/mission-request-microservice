@@ -52,7 +52,7 @@ public class MissionRequestController {
         this.missionRequestService.save(request);
 
         MissionRequestDto requestDto = MissionRequestMapper.toDto(request);
-        MissionRequestApprovedEvent missionRequestApprovedEvent = new MissionRequestApprovedEvent(request.getMissionId(), request.getId());
+        MissionRequestApprovedEvent missionRequestApprovedEvent = new MissionRequestApprovedEvent(request.getMissionId(), request.getId(), request.getProfessorId());
 
         this.rabbitTemplate.convertAndSend("mission-request-approved", "", missionRequestApprovedEvent);
 

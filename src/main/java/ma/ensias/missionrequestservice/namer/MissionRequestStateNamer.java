@@ -1,4 +1,4 @@
-package ma.ensias.missionrequestservice.namers;
+package ma.ensias.missionrequestservice.namer;
 
 import ma.ensias.missionrequestservice.domain.MissionRequestState;
 

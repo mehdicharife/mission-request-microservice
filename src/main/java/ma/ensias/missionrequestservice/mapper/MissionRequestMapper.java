@@ -3,8 +3,8 @@ package ma.ensias.missionrequestservice.mapper;
 
 import ma.ensias.missionrequestservice.domain.MissionRequest;
 import ma.ensias.missionrequestservice.dto.MissionRequestDto;
-import ma.ensias.missionrequestservice.namers.MissionRequestStateNamer;
-import ma.ensias.missionrequestservice.namers.NamePerSubTypeMissionRequestStateNamer;
+import ma.ensias.missionrequestservice.namer.MissionRequestStateNamer;
+import ma.ensias.missionrequestservice.namer.NamePerSubTypeMissionRequestStateNamer;
 
 
 public class MissionRequestMapper {
