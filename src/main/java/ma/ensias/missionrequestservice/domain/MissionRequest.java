@@ -27,6 +27,15 @@ public class MissionRequest implements Serializable {
     private transient SimpleMissionRequestStateReflector stateReflector = new SimpleMissionRequestStateReflector();
 
 
+    public MissionRequest() {}
+
+    public MissionRequest(Long id, Long professorId, Long missionId) {
+        this.id = id;
+        this.professorId = professorId;
+        this.missionId = missionId;
+    }
+
+
     public Long getId() {
         return this.id;
     }

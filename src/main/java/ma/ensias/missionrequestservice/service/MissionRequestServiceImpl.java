@@ -7,6 +7,7 @@ import ma.ensias.missionrequestservice.domain.MissionRequest;
 import ma.ensias.missionrequestservice.reflector.MissionRequestStateRepositoryBasedMissionRequestStateReflector;
 import ma.ensias.missionrequestservice.repository.MissionRequestRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,5 +31,12 @@ public class MissionRequestServiceImpl implements MissionRequestService {
     public MissionRequest save(MissionRequest missionRequest) {
         MissionRequest saveableMissionRequest = missionRequest.copy(stateReflector);
         return missionRequestRepository.save(saveableMissionRequest);
+    }
+
+    public List<MissionRequest> getMissionRequestsByProfessorId(Long profId) {
+        List<MissionRequest> requests = new ArrayList<MissionRequest>();
+        requests.add(new MissionRequest((long) 1, (long) 2, (long) 5));
+        return requests;
+        //return this.missionRequestRepository.findByProfessorId(profId);
     }
 }

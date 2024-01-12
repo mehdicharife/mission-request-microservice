@@ -12,4 +12,6 @@ public interface MissionRequestService {
 
     MissionRequest save(MissionRequest missionRequest);
 
+    List<MissionRequest> getMissionRequestsByProfessorId(Long profId);
+
 }

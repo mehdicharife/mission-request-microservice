@@ -10,8 +10,10 @@ import ma.ensias.missionrequestservice.mapper.MissionRequestMapper;
 import ma.ensias.missionrequestservice.service.MissionRequestService;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
+@RequestMapping("/mission-requests")
 public class MissionRequestController {
 
     private final MissionRequestService missionRequestService;
@@ -23,27 +25,32 @@ public class MissionRequestController {
     }
 
 
-    @GetMapping("/mission-requests/")
-    public List<MissionRequest> getMissionRequests() {
+    @GetMapping
+    public List<MissionRequest> getMissionRequests(@RequestParam(value = "professorId", required = false) Optional<Long> id) {
+        if(id.isPresent()) {
+            return this.missionRequestService.getMissionRequestsByProfessorId(id.get());
+        }
+        
         return this.missionRequestService.getMissionRequests();
     }
 
 
-    @GetMapping("/mission-requests/{id}")
+    @GetMapping("/{id}")
     public MissionRequest getMissionRequestById(@PathVariable Long id) {
         return this.missionRequestService.getMissionRequestById(id)
                 .orElseThrow(IllegalStateException::new);
     }
 
 
-    @PostMapping("/mission-requests/")
+    @PostMapping
     public MissionRequestDto addMissionRequest(@RequestBody MissionRequest missionRequest) {
         MissionRequest savedMissionRequest = this.missionRequestService.save(missionRequest);
         return MissionRequestMapper.toDto(savedMissionRequest);
     }
 
 
-    @PatchMapping ("/mission-requests/{id}/approve")
+
+    @PatchMapping ("/{id}/approve")
     public MissionRequestDto approveMissionRequestById(@PathVariable Long id) {
         MissionRequest request = this.missionRequestService.getMissionRequestById(id)
                 .orElseThrow(IllegalStateException::new);
@@ -60,7 +67,7 @@ public class MissionRequestController {
     }
 
 
-    @PatchMapping("/mission-requests/{id}/reject")
+    @PatchMapping("{id}/reject")
     public MissionRequestDto rejectMissionRequestById(@PathVariable Long id) {
         MissionRequest request = this.missionRequestService.getMissionRequestById(id)
                 .orElseThrow(IllegalStateException::new);
@@ -72,7 +79,7 @@ public class MissionRequestController {
     }
 
 
-    @PatchMapping("/mission-requests/{id}/cancel")
+    @PatchMapping("{id}/cancel")
     public MissionRequestDto cancelMissionRequestById(@PathVariable Long id) {
         MissionRequest request = this.missionRequestService.getMissionRequestById(id)
                 .orElseThrow(IllegalStateException::new);
