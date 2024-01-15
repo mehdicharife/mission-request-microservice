@@ -35,7 +35,7 @@ public class MissionRequestServiceApplication {
 			missionRequestService.save(request4);
 
 			MissionRequest request5 = new MissionRequest();
-			request5.cancel();
+			request5.reject();
 			missionRequestService.save(request5);
 
 		};

@@ -80,9 +80,11 @@ public class MissionRequest implements Serializable {
         MissionRequest request = new MissionRequest();
         request.id = this.id;
         request.professorId = this.professorId;
+        request.missionId = this.missionId;
         request.state = reflector.convert(state);
         return request;
     }
+
 
 
     @Override
@@ -90,9 +92,10 @@ public class MissionRequest implements Serializable {
         return "{" +
             " id='" + getId() + "'" +
             ", professorId='" + getProfessorId() + "'" +
-            ", state='" + state + "'" +
+            ", missionId='" + getMissionId() + "'" +
             "}";
     }
+
 
 
 
