@@ -8,7 +8,6 @@ import org.springframework.context.annotation.Bean;
 
 import ma.ensias.missionrequestservice.domain.MissionRequest;
 import ma.ensias.missionrequestservice.factory.MissionRequestStateFactory;
-import ma.ensias.missionrequestservice.repository.MissionRequestStateRepository;
 import ma.ensias.missionrequestservice.service.MissionRequestService;
 
 @SpringBootApplication
