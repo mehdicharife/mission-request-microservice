@@ -8,6 +8,7 @@ import ma.ensias.missionrequestservice.reflector.SimpleMissionRequestStateReflec
 
 
 @Entity
+@Table(name = "mission_requests")
 public class MissionRequest implements Serializable {
 
     @Id
@@ -20,7 +21,7 @@ public class MissionRequest implements Serializable {
 
 
     @ManyToOne
-    @JoinColumn(name="mission_request_state_id", referencedColumnName="id")
+    @JoinColumn(name="state_id", referencedColumnName="id")
     private MissionRequestState state = new CreatedMissionRequestState();
 
     @Transient

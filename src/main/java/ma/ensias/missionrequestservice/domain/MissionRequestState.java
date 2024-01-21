@@ -8,12 +8,13 @@ import java.io.Serializable;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+@Table(name = "mission_request_states")
 @Entity
 @Inheritance
 @DiscriminatorColumn(name="name")
 public abstract class MissionRequestState implements Serializable, Cloneable  {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Autowired
